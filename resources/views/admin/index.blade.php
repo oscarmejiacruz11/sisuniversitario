@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <h1>SISTEMA ROXANA SANCHEZ</h1>
+    <h1>SISTEMA </h1>
     <hr>
 @stop
 

@@ -18,10 +18,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+/*
 Route::get('/register', function () {
     abort(403, 'Registro no permitido'); // O redirigir a otra ruta----------------NO ME PERMITE CREAR OTROS USUARIOS EXTERNOS
-})->name('register');
+})->name('register');*/
 
 Route::get('/home', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index.home')->middleware('auth');
 
@@ -55,3 +55,12 @@ Route::post('/admin/niveles/create', [App\Http\Controllers\NivelController::clas
 Route::get('/admin/niveles/{id}/edit', [App\Http\Controllers\NivelController::class, 'edit'])->name('admin.niveles.edit')->middleware('auth');
 Route::put('/admin/niveles/{id}', [App\Http\Controllers\NivelController::class, 'update'])->name('admin.niveles.update')->middleware('auth');
 Route::delete('/admin/niveles/{id}', [App\Http\Controllers\NivelController::class, 'destroy'])->name('admin.niveles.destroy')->middleware('auth');
+
+//rutas para materias
+Route::get('/admin/materias', [App\Http\Controllers\MateriaController::class, 'index'])->name('admin.materias.index')->middleware('auth');
+Route::get('/admin/materias/create', [App\Http\Controllers\MateriaController::class, 'create'])->name('admin.materias.create')->middleware('auth');
+Route::post('/admin/materias/create', [App\Http\Controllers\MateriaController::class, 'store'])->name('admin.materias.store')->middleware('auth');
+Route::get('/admin/materias/{id}', [App\Http\Controllers\MateriaController::class, 'show'])->name('admin.materias.show')->middleware('auth');
+Route::get('/admin/materias/{id}/edit', [App\Http\Controllers\MateriaController::class, 'edit'])->name('admin.materias.edit')->middleware('auth');
+Route::put('/admin/materias/{id}', [App\Http\Controllers\MateriaController::class, 'update'])->name('admin.materias.update')->middleware('auth');
+Route::delete('/admin/materias/{id}', [App\Http\Controllers\MateriaController::class, 'destroy'])->name('admin.materias.destroy')->middleware('auth');
